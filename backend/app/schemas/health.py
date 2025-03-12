@@ -1,6 +1,4 @@
 from pydantic import BaseModel
-from .base import BaseResponse
-
 
 class HealthStatus(BaseModel):
     """Health status information."""

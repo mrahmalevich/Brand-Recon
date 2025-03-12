@@ -3,37 +3,59 @@ from typing import Optional
 from datetime import datetime
 from .base import BaseResponse
 
-class UserCreateRequest(BaseModel):
-    """Schema for user creation request."""
+# Request Schemas
+class UserRegisterRequest(BaseModel):
+    """Schema for user registration request."""
     email: EmailStr
-    username: str = Field(..., min_length=3, max_length=50)
-    full_name: Optional[str] = None
+    first_name: str = Field(..., min_length=1, max_length=50)
+    last_name: str = Field(..., min_length=1, max_length=50)
+    organization: str = Field(..., min_length=1, max_length=100)
+    password: str = Field(..., min_length=8)
+
+class UserLoginRequest(BaseModel):
+    """Schema for user login request."""
+    email: EmailStr
+    password: str
+
+class PasswordResetRequest(BaseModel):
+    """Schema for password reset request."""
+    email: EmailStr
+
+class PasswordResetConfirmRequest(BaseModel):
+    """Schema for password reset confirmation."""
+    token: str
     password: str = Field(..., min_length=8)
 
 class UserUpdateRequest(BaseModel):
     """Schema for user update request."""
+    first_name: Optional[str] = Field(None, min_length=1, max_length=50)
+    last_name: Optional[str] = Field(None, min_length=1, max_length=50)
+    organization: Optional[str] = Field(None, min_length=1, max_length=100)
     email: Optional[EmailStr] = None
-    username: Optional[str] = Field(None, min_length=3, max_length=50)
-    full_name: Optional[str] = None
-    password: Optional[str] = Field(None, min_length=8)
 
+# Response Schemas
 class UserSchema(BaseModel):
     """Base user schema for responses."""
     id: str
     email: EmailStr
-    username: str
-    full_name: Optional[str] = None
+    first_name: str
+    last_name: str
+    organization: str
     is_active: bool
-    is_superuser: bool
+    is_verified: bool
     created_at: datetime
     updated_at: datetime
     
-    class Config:
-        orm_mode = True
-
 class UserResponse(BaseResponse):
     """Schema for user response."""
     user: UserSchema
+
+class TokenResponse(BaseResponse):
+    """Schema for token response."""
+    access_token: str
+    token_type: str = "bearer"
+    expires_in: int
+    id_token: Optional[str] = None
 
 class UsersListResponse(BaseResponse):
     """Schema for users list response."""
