@@ -11,9 +11,33 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as ProfileImport } from './routes/profile'
+import { Route as LoginImport } from './routes/login'
+import { Route as DashboardImport } from './routes/dashboard'
+import { Route as R404Import } from './routes/$404'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const ProfileRoute = ProfileImport.update({
+  path: '/profile',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LoginRoute = LoginImport.update({
+  path: '/login',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardRoute = DashboardImport.update({
+  path: '/dashboard',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const R404Route = R404Import.update({
+  path: '/$404',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   path: '/',
@@ -31,12 +55,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/$404': {
+      id: '/$404'
+      path: '/$404'
+      fullPath: '/$404'
+      preLoaderRoute: typeof R404Import
+      parentRoute: typeof rootRoute
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardImport
+      parentRoute: typeof rootRoute
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginImport
+      parentRoute: typeof rootRoute
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({ IndexRoute })
+export const routeTree = rootRoute.addChildren({
+  IndexRoute,
+  R404Route,
+  DashboardRoute,
+  LoginRoute,
+  ProfileRoute,
+})
 
 /* prettier-ignore-end */
 
@@ -46,11 +104,27 @@ export const routeTree = rootRoute.addChildren({ IndexRoute })
     "__root__": {
       "filePath": "__root.ts",
       "children": [
-        "/"
+        "/",
+        "/$404",
+        "/dashboard",
+        "/login",
+        "/profile"
       ]
     },
     "/": {
       "filePath": "index.ts"
+    },
+    "/$404": {
+      "filePath": "$404.ts"
+    },
+    "/dashboard": {
+      "filePath": "dashboard.ts"
+    },
+    "/login": {
+      "filePath": "login.ts"
+    },
+    "/profile": {
+      "filePath": "profile.ts"
     }
   }
 }
