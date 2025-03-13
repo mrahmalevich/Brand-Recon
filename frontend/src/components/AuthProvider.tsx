@@ -1,4 +1,3 @@
-import React from "react";
 import { Outlet } from "@tanstack/react-router";
 import type { FunctionComponent } from "../common/types";
 

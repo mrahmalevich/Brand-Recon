@@ -1,4 +1,3 @@
-import React from "react";
 import type { FunctionComponent } from "../common/types";
 
 export const NotFound = (): FunctionComponent => {
