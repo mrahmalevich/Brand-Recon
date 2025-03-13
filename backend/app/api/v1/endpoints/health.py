@@ -4,7 +4,7 @@ from app.core.config import settings
 
 router = APIRouter()
 
-@router.get("/", response_model=HealthStatus)
+@router.get("", response_model=HealthStatus)
 async def health_check():
     """
     Health check endpoint to verify API is running.

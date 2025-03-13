@@ -1,0 +1,156 @@
+@layer components {
+  /* Form container */
+  .form-container {
+    @apply max-w-md mx-auto p-8 bg-white rounded-lg shadow-md;
+  }
+
+  /* Form headings */
+  .form-heading {
+    @apply text-2xl font-bold text-center text-gray-800 mb-6;
+  }
+
+  /* Form error message */
+  .form-error {
+    @apply bg-red-50 text-red-700 p-3 rounded-md mb-6 text-center;
+  }
+
+  /* Form success message */
+  .form-success {
+    @apply bg-green-50 text-green-700 p-6 rounded-md mb-6 text-center;
+  }
+
+  /* Form field container */
+  .form-field {
+    @apply mb-6;
+  }
+
+  /* Form labels */
+  .form-label {
+    @apply block mb-2 text-sm font-medium text-gray-700 text-left;
+  }
+
+  /* Form inputs */
+  .form-input {
+    @apply w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
+
+  /* Form description text */
+  .form-description {
+    @apply mb-6 text-center text-gray-600;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply w-full py-3 px-4 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-md transition duration-300;
+  }
+
+  /* Button container */
+  .btn-container {
+    @apply mb-4;
+  }
+
+  /* Link button */
+  .btn-link {
+    @apply text-blue-500 hover:text-blue-700 text-sm underline;
+  }
+
+  /* Links container - centered */
+  .links-center {
+    @apply flex justify-center;
+  }
+
+  /* Links container - spaced between */
+  .links-between {
+    @apply flex justify-between;
+  }
+
+  /* App container with flex layout */
+  .app-container {
+    @apply max-w-screen-xl mx-auto min-h-screen flex flex-col relative pb-20;
+  }
+
+  /* Main content area */
+  .main-content {
+    @apply flex-grow p-4;
+  }
+
+  /* Footer with fixed position */
+  .app-footer {
+    @apply fixed bottom-0 left-0 right-0 py-4 flex justify-center items-center bg-white bg-opacity-90 shadow-md;
+  }
+
+  /* Toggle button with better styling */
+  .toggle-button {
+    @apply px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-md transition duration-300 shadow-md;
+  }
+
+  /* Health check container */
+  .health-check-container {
+    @apply max-w-md mx-auto p-8 bg-white rounded-lg shadow-md;
+  }
+
+  /* Health check heading */
+  .health-check-heading {
+    @apply text-2xl font-bold text-center text-gray-800 mb-6;
+  }
+
+  /* Health check status - loading */
+  .status-loading {
+    @apply bg-gray-100 text-gray-600 p-4 rounded-md mt-4;
+  }
+
+  /* Health check status - error */
+  .status-error {
+    @apply bg-red-50 text-red-700 p-4 rounded-md mt-4;
+  }
+
+  /* Health check status - success */
+  .status-success {
+    @apply bg-green-50 text-green-700 p-4 rounded-md mt-4;
+  }
+
+  /* Health check status item */
+  .status-item {
+    @apply my-2;
+  }
+
+  /* Health check status value */
+  .status-value {
+    @apply font-bold;
+  }
+
+  /* Modal overlay */
+  .modal-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4;
+  }
+
+  /* Modal container */
+  .modal-container {
+    @apply bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto;
+  }
+
+  /* Modal header */
+  .modal-header {
+    @apply flex justify-between items-center p-4 border-b border-gray-200;
+  }
+
+  /* Modal title */
+  .modal-title {
+    @apply text-xl font-bold text-gray-800;
+  }
+
+  /* Modal close button */
+  .modal-close {
+    @apply text-gray-500 hover:text-gray-700 focus:outline-none p-2 rounded-full hover:bg-gray-100;
+  }
+
+  /* Modal body */
+  .modal-body {
+    @apply p-4;
+  }
+
+  /* Modal footer */
+  .modal-footer {
+    @apply flex justify-end p-4 border-t border-gray-200;
+  }
+} 

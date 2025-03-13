@@ -6,7 +6,6 @@ from app.core.database import connect_to_mongo, close_mongo_connection
 from app.api.v1.api import api_router
 from app.core.logging import setup_logging
 
-# Set up logging
 logger = setup_logging()
 
 @asynccontextmanager
@@ -36,4 +35,4 @@ app.add_middleware(
 )
 
 logger.info(f"API will be available at {settings.API_V1_STR}")
-app.include_router(api_router) 
+app.include_router(api_router, prefix=settings.API_V1_STR)
